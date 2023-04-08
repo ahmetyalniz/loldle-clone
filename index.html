@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   </head>
   <body>
-    <div class="container">
+    <header class="container">
       <div class="header-container">
         <h3>Loldle-Clone</h3>
       </div>
@@ -24,51 +24,56 @@
         <button type="button" class="btn btn-primary">Settings</button>
         <button type="button" class="btn btn-primary">Help</button>
       </div>
-      <div class="text-container">
-        <h3>Guess a Champion!</h3>
-        <p>Quote Clue in 5 tries</p>
-        <p>Ability Clue in 11 tries</p>
-        <p>Splash Clue in 17 tries</p>
-      </div>
-      <div class="input-container">
-        <input type="text" id="guess-input" />
-        <button class="send-button btn btn-warning">SEND</button>
-      </div>
-      <div class="card-container"></div>
-      <div class="table-container">
-        <table class="table" id="myTable">
-          <thead>
-            <tr>
-              <th scope="col">Champion</th>
-              <th scope="col">Gender</th>
-              <th scope="col">Position(s)</th>
-              <th scope="col">Species</th>
-              <th scope="col">Resource</th>
-              <th scope="col">Range Type</th>
-              <th scope="col">Region(s)</th>
-              <th scope="col">Release Year</th>
-            </tr>
-          </thead>
+    </header>
+    <section class="guess-champion visible">
+      <div class="container">
+        <div class="text-container">
+          <h3>Guess a Champion!</h3>
+          <p>Quote Clue in 5 tries</p>
+          <p>Ability Clue in 11 tries</p>
+          <p>Splash Clue in 17 tries</p>
+        </div>
+        <div class="input-container">
+          <input type="text" id="guess-input" />
+          <button class="send-button btn btn-warning">SEND</button>
+        </div>
+        <div class="card-container"></div>
+        <div class="table-container">
+          <table class="table" id="myTable">
+            <thead>
+              <tr>
+                <th scope="col">Champion</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Position(s)</th>
+                <th scope="col">Species</th>
+                <th scope="col">Resource</th>
+                <th scope="col">Range Type</th>
+                <th scope="col">Region(s)</th>
+                <th scope="col">Release Year</th>
+              </tr>
+            </thead>
 
-          <tbody></tbody>
-        </table>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="indicator-container">
+          <h6>Color Indicators</h6>
+          <ul>
+            <li style="color: green">Correnct</li>
+            <li style="color: orange">Partial</li>
+            <li style="color: red">Incorrect</li>
+          </ul>
+          <button class="btn btn-primary">Close</button>
+        </div>
+        <footer></footer>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+          crossorigin="anonymous"
+        ></script>
       </div>
-      <div class="indicator-container">
-        <h6>Color Indicators</h6>
-        <ul>
-          <li style="color: green">Correnct</li>
-          <li style="color: orange">Partial</li>
-          <li style="color: red">Incorrect</li>
-        </ul>
-        <button class="btn btn-primary">Close</button>
-      </div>
-      <footer></footer>
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
-        crossorigin="anonymous"
-      ></script>
-    </div>
+    </section>
+    <section class="guess-skill"></section>
     <script src="/loldle_champions.js"></script>
     <script src="/app.js"></script>
   </body>

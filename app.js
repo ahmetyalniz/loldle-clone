@@ -1,4 +1,5 @@
 const send_button = document.querySelector(".send-button");
+var input = document.getElementById("guess-input");
 // var champions = new Array();
 var dailyChampion;
 $(document).ready(function () {
@@ -10,10 +11,16 @@ $(document).ready(function () {
   //     console.log(dailyChampion);
   //   });
   dailyChampion = champions[Math.floor(Math.random() * champions.length)];
+  console.log(dailyChampion);
 });
 
+input.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    generateChampionRow();
+  }
+});
 send_button.addEventListener("click", generateChampionRow);
-
 function generateChampionRow() {
   var userInput = document.getElementById("guess-input").value;
 
@@ -69,12 +76,13 @@ function generateChampionRow() {
         dailyChampion.ReleaseYear,
         releaseYearCell
       );
+      guessAlert(champions[i].Name, dailyChampion.Name);
       champions.splice(i, 1);
+
       break;
     }
   }
 }
-
 function arrayComparator(arr1, arr2, cell) {
   cell.innerHTML = arr1;
 
@@ -118,4 +126,10 @@ function createImage(imageSrc) {
   img.style.width = "66px";
 
   return img;
+}
+
+function guessAlert(guessedChampion, targetChampion) {
+  if (guessedChampion == targetChampion) {
+    alert("You win!");
+  }
 }
