@@ -11,7 +11,6 @@ $(document).ready(function () {
   //     console.log(dailyChampion);
   //   });
   dailyChampion = champions[Math.floor(Math.random() * champions.length)];
-  console.log(dailyChampion);
 });
 
 input.addEventListener("keypress", function (e) {
