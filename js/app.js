@@ -41,58 +41,59 @@ function generateChampionRow() {
     .getElementById("myTable")
     .getElementsByTagName("tbody")[0];
 
-  for (let i = 0; i < champions.length; i++) {
-    if (userInput.toLowerCase() === champions[i].Name.toLowerCase()) {
-      var row = table.insertRow(0);
-
-      createCell(row, 0).appendChild(createImage(champions[i].Image));
-      stringComparator(
-        champions[i].Gender,
-        dailyChampion.Gender,
-        createCell(row, 1)
-      );
-      arrayComparator(
-        champions[i].Position,
-        dailyChampion.Position,
-        createCell(row, 2)
-      );
-      arrayComparator(
-        champions[i].Species,
-        dailyChampion.Species,
-        createCell(row, 3)
-      );
-      stringComparator(
-        champions[i].Resource,
-        dailyChampion.Resource,
-        createCell(row, 4)
-      );
-      arrayComparator(
-        champions[i].RangeType,
-        dailyChampion.RangeType,
-        createCell(row, 5)
-      );
-      arrayComparator(
-        champions[i].Region,
-        dailyChampion.Region,
-        createCell(row, 6)
-      );
-      var releaseYearCell = createCell(row, 7);
-      stringComparator(
-        champions[i].ReleaseYear,
-        dailyChampion.ReleaseYear,
-        releaseYearCell
-      );
-      intComparator(
-        champions[i].ReleaseYear,
-        dailyChampion.ReleaseYear,
-        releaseYearCell
-      );
-      guessAlert(champions[i].Name, dailyChampion.Name);
-      champions.splice(i, 1);
-
-      break;
-    }
+  let selectedChampionIndex = champions.findIndex(
+    (champion) => champion.Name.toLowerCase() == userInput.toLowerCase()
+  );
+  if (selectedChampionIndex == -1) {
+    return;
   }
+  const selectedChampion = champions[selectedChampionIndex];
+  var row = table.insertRow(0);
+
+  createCell(row, 0).appendChild(createImage(selectedChampion.Image));
+  stringComparator(
+    selectedChampion.Gender,
+    dailyChampion.Gender,
+    createCell(row, 1)
+  );
+  arrayComparator(
+    selectedChampion.Position,
+    dailyChampion.Position,
+    createCell(row, 2)
+  );
+  arrayComparator(
+    selectedChampion.Species,
+    dailyChampion.Species,
+    createCell(row, 3)
+  );
+  stringComparator(
+    selectedChampion.Resource,
+    dailyChampion.Resource,
+    createCell(row, 4)
+  );
+  arrayComparator(
+    selectedChampion.RangeType,
+    dailyChampion.RangeType,
+    createCell(row, 5)
+  );
+  arrayComparator(
+    selectedChampion.Region,
+    dailyChampion.Region,
+    createCell(row, 6)
+  );
+  var releaseYearCell = createCell(row, 7);
+  stringComparator(
+    selectedChampion.ReleaseYear,
+    dailyChampion.ReleaseYear,
+    releaseYearCell
+  );
+  intComparator(
+    selectedChampion.ReleaseYear,
+    dailyChampion.ReleaseYear,
+    releaseYearCell
+  );
+  guessAlert(selectedChampion.Name, dailyChampion.Name);
+  champions.splice(selectedChampionIndex, 1);
 }
 function arrayComparator(arr1, arr2, cell) {
   cell.innerHTML = arr1;
