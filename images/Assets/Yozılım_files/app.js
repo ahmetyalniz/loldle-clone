@@ -31,6 +31,7 @@ $(document).ready(function () {
   (")");
   console.log(randomDegrees[Math.floor(Math.random() * randomDegrees.length)]);
   console.log(dailyChampion);
+  console.log(dailySkill);
 });
 
 dailyChampionInput.addEventListener("keypress", function (e) {
@@ -189,7 +190,3 @@ function stringComparator(str1, str2, cell) {
   cell.innerHTML = str1;
   return dailySkillStringComparator(str1, str2, cell);
 }
-
-const inputList = document.querySelectorAll("input-list");
-
-dailyChampionInput.addEventListener("input", function () {});

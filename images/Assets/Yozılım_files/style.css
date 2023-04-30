@@ -44,15 +44,15 @@ body {
   border: 2px solid rgb(200, 170, 110);
   border-radius: 16px;
   width: 280px;
-  padding: 8px;
+  padding: 16px;
+
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .user-input-container {
-  padding: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 #guess-input {
   padding-left: 12px;
@@ -68,35 +68,21 @@ body {
   border-bottom-right-radius: 16px;
 }
 .input-list {
-  margin-top: 4px;
-  max-height: 200px;
-  width: 320px;
-  overflow-y: scroll;
 }
+.input-list li {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  outline: none;
+}
+
 .guess-list {
   margin: 0;
-  padding-top: 4px;
-  padding-bottom: 4px;
   background-color: white;
   list-style-type: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.guess-list:nth-child(odd) {
-  background-color: #1e2328;
-}
-
-.guess-list:nth-child(even) {
-  background-color: #1e282d;
-}
-.input-list li {
-  outline: none;
-  padding-right: 32px;
-  padding-bottom: 2px;
-  color: #a09b8c;
-}
-
 .btn-warning,
 .btn-warning:hover,
 .btn-warning:active,
@@ -110,66 +96,3 @@ body {
 .hidden {
   display: none;
 }
-
-/* .table-container {
-}
-
-#myTable {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#myTable thead {
-  border: none;
-  padding: 4px;
-  border-spacing: 8px;
-  text-align: center;
-  border-collapse: separate;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#myTable thead td {
-  margin: 4px;
-  padding: 8px;
-  width: 100px;
-  max-width: 100px;
-  height: 70px;
-  border-radius: 16px;
-  text-align: center;
-}
-#myTable tbody {
-  border: none;
-  border-collapse: separate;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4px;
-  border-spacing: 8px;
-}
-
-#myTable tbody tr {
-  background-color: #1e282d;
-  margin-top: 8px;
-  border: 2px solid rgb(200, 170, 110);
-  border-radius: 16px;
-}
-
-#myTable tbody tr img {
-  border-radius: 16px;
-}
-
-#myTable td {
-  margin: 4px;
-  padding: 8px;
-  width: 100px;
-  max-width: 100px;
-  height: 70px;
-  border: 2px solid rgb(200, 170, 110);
-  border-radius: 16px;
-  text-align: center;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-} */
