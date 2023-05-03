@@ -58,7 +58,9 @@ function generateChampionRow() {
   const selectedChampion = champions[selectedChampionIndex];
   let row = table.insertRow(0);
 
-  createCell(row, 0).appendChild(createImage(selectedChampion.Image));
+  createCell(row, 0).children[0].appendChild(
+    createImage(selectedChampion.Image)
+  );
   stringComparator(
     selectedChampion.Gender,
     dailyChampion.Gender,
@@ -104,7 +106,7 @@ function generateChampionRow() {
   champions.splice(selectedChampionIndex, 1);
 }
 function arrayComparator(arr1, arr2, cell) {
-  cell.innerHTML = arr1;
+  cell.children[0].innerHTML = arr1.join(", ");
 
   if (JSON.stringify(arr1.sort()) == JSON.stringify(arr2.sort())) {
     return (cell.style.backgroundColor = "Green");
@@ -122,23 +124,26 @@ function arrayComparator(arr1, arr2, cell) {
 
 function intComparator(str1, str2, cell) {
   if (parseInt(str1) == parseInt(str2)) {
-    cell.innerHTML = str1;
+    cell.children[0].innerHTML = str1;
   } else if (parseInt(str1) < parseInt(str2)) {
-    cell.innerHTML = ">" + str1;
+    cell.children[0].innerHTML = ">" + str1;
   } else {
-    cell.innerHTML = "<" + str1;
+    cell.children[0].innerHTML = "<" + str1;
   }
 }
 
 function createCell(row, index) {
-  return row.insertCell(index);
+  let div = document.createElement("div");
+  let cell = row.insertCell(index);
+  cell.appendChild(div);
+  return cell;
 }
 
 function createImage(imageSrc) {
   let img = document.createElement("img");
   img.src = "images" + "/Champions" + "/" + imageSrc + ".png";
-  img.style.height = "72.6px";
-  img.style.width = "66px";
+  img.style.height = "100px";
+  img.style.width = "100px";
 
   return img;
 }
@@ -168,7 +173,9 @@ function skillComparator() {
   for (let i = 0; i < champions.length; i++) {
     if (userSkillInput.toLowerCase() === champions[i].Name.toLowerCase()) {
       let skillRow = tableSkill.insertRow(0);
-      createCell(skillRow, 0).appendChild(createImage(champions[i].Image));
+      createCell(skillRow, 0).children[0].appendChild(
+        createImage(champions[i].Image)
+      );
       dailySkillStringComparator(
         champions[i].Name,
         dailySkill.Name,
@@ -186,10 +193,6 @@ let dailySkillStringComparator = (str1, str2, cell) => {
 };
 
 function stringComparator(str1, str2, cell) {
-  cell.innerHTML = str1;
+  cell.children[0].innerHTML = str1;
   return dailySkillStringComparator(str1, str2, cell);
 }
-
-const inputList = document.querySelectorAll("input-list");
-
-dailyChampionInput.addEventListener("input", function () {});

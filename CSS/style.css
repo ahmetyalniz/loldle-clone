@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   font-family: "Roboto", sans-serif;
 }
 body {
@@ -14,29 +14,51 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .stats-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stats-list {
+  /* width: 480px; */
   padding-top: 16px;
   padding-bottom: 16px;
-  border: 2px solid rgb(200, 170, 110);
   background-color: rgb(30, 40, 45);
   color: rgb(240, 230, 210);
   border-radius: 16px;
-  display: flex;
+  border: 2px solid rgb(200, 170, 110);
 }
-
 .stats-header {
   font-size: 20px;
   font-weight: 600;
 }
+
+.stats-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.stats-header-data {
+  display: flex;
+  height: 77px;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  text-align: center;
+}
 .stats-header-border {
-  border-bottom: 1px solid rgb(200, 170, 110);
+  width: 175px;
+  background-color: #c89b3c;
   padding-bottom: 4px;
+  margin-top: 24px;
+  border-radius: 16px;
 }
 .stats-body {
   text-align: center;
   padding-top: 16px;
-  font-size: 32px;
+  font-size: 54px;
   font-weight: 700;
 }
 .input-container {
@@ -69,34 +91,60 @@ body {
 }
 .input-list {
   margin-top: 4px;
-  max-height: 200px;
-  width: 320px;
-  overflow-y: scroll;
+  width: 260px;
 }
 .guess-list {
-  margin: 0;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  background-color: white;
-  list-style-type: none;
+  padding: 8px;
+  max-height: 200px;
   display: flex;
+  flex-direction: column;
+  background-color: #3c3c41;
+  overflow-y: scroll;
   align-items: center;
-  justify-content: space-between;
+  border: 1px solid rgb(200, 170, 110);
+  border-radius: 16px;
 }
-.guess-list:nth-child(odd) {
+
+.input-list-img {
+  border-radius: 16px;
+  border: 1px solid rgb(200, 170, 110);
+}
+
+.input-list-img img {
+  border-radius: 16px;
+  height: 54px;
+  width: 54px;
+}
+.guess-list li:nth-child(odd) {
   background-color: #1e2328;
 }
 
-.guess-list:nth-child(even) {
+.guess-list li:nth-child(even) {
   background-color: #1e282d;
 }
-.input-list li {
-  outline: none;
-  padding-right: 32px;
-  padding-bottom: 2px;
+.guess-list li {
+  width: 80%;
   color: #a09b8c;
+  list-style-type: none;
+  display: flex;
+  background-color: #1e282d;
+  margin-top: 8px;
+  margin-right: 16px;
+  margin-bottom: 8px;
+  margin-left: 16px;
+  border-radius: 16px;
 }
-
+.guess-list li div {
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.guess-list p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
 .btn-warning,
 .btn-warning:hover,
 .btn-warning:active,
@@ -111,7 +159,7 @@ body {
   display: none;
 }
 
-/* .table-container {
+.table-container {
 }
 
 #myTable {
@@ -119,25 +167,31 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 2px solid rgb(200, 170, 110);
+  border-radius: 16px;
 }
 #myTable thead {
+  width: 1036px;
   border: none;
   padding: 4px;
   border-spacing: 8px;
   text-align: center;
   border-collapse: separate;
+}
+#myTable thead tr {
+  width: 100%;
+  margin-top: 8px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
-#myTable thead td {
+#myTable thead th {
   margin: 4px;
   padding: 8px;
-  width: 100px;
-  max-width: 100px;
-  height: 70px;
-  border-radius: 16px;
   text-align: center;
+  font-weight: 600;
+  width: 100px;
+  border: none;
 }
 #myTable tbody {
   border: none;
@@ -153,7 +207,6 @@ body {
 #myTable tbody tr {
   background-color: #1e282d;
   margin-top: 8px;
-  border: 2px solid rgb(200, 170, 110);
   border-radius: 16px;
 }
 
@@ -164,12 +217,18 @@ body {
 #myTable td {
   margin: 4px;
   padding: 8px;
-  width: 100px;
-  max-width: 100px;
-  height: 70px;
   border: 2px solid rgb(200, 170, 110);
   border-radius: 16px;
+}
+
+#myTable td div {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word;
+  font-size: 20px;
+  font-weight: 600;
   text-align: center;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-} */
+}
