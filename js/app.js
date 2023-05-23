@@ -93,12 +93,19 @@ function arrayComparator(arr1, arr2, cell) {
 }
 
 function intComparator(str1, str2, cell) {
+  let div = document.createElement("span");
+  cell.appendChild(div);
+  cell.style.position = "relative";
+  div.style.position = "absolute";
   if (parseInt(str1) == parseInt(str2)) {
-    cell.children[0].innerHTML = str1;
+    div.innerHTML = str1;
   } else if (parseInt(str1) < parseInt(str2)) {
-    cell.children[0].innerHTML = ">" + str1;
+    div.innerHTML = str1;
+    cell.children[0].classList.add("arrow-container");
   } else {
-    cell.children[0].innerHTML = "<" + str1;
+    div.innerHTML = str1;
+    cell.children[0].classList.add("arrow-container");
+    cell.children[0].style.transform = "rotate(180deg)";
   }
 }
 
@@ -164,8 +171,10 @@ let dailySkillStringComparator = (str1, str2, cell) => {
   return (cell.style.backgroundColor = str1 === str2 ? "Green" : "Red");
 };
 
-function stringComparator(str1, str2, cell) {
-  cell.children[0].innerHTML = str1;
+function stringComparator(str1, str2, cell, shouldWriteCell = true) {
+  if (shouldWriteCell) {
+    cell.children[0].innerHTML = str1;
+  }
   return dailySkillStringComparator(str1, str2, cell);
 }
 
@@ -234,7 +243,8 @@ function inputProcessor(userInput) {
   stringComparator(
     selectedChampion.ReleaseYear,
     dailyChampion.ReleaseYear,
-    releaseYearCell
+    releaseYearCell,
+    false
   );
   intComparator(
     selectedChampion.ReleaseYear,
