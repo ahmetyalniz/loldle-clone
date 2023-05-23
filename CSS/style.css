@@ -51,9 +51,9 @@ body {
 .stats-header-border {
   width: 175px;
   background-color: #c89b3c;
-  padding-bottom: 4px;
   margin-top: 24px;
   border-radius: 16px;
+  height: 1px;
 }
 .stats-body {
   text-align: center;
@@ -65,7 +65,7 @@ body {
   margin-top: 16px;
   border: 2px solid rgb(200, 170, 110);
   border-radius: 16px;
-  width: 280px;
+  width: 320px;
   padding: 8px;
   display: flex;
   flex-direction: column;
@@ -90,19 +90,28 @@ body {
   border-bottom-right-radius: 16px;
 }
 .input-list {
-  margin-top: 4px;
-  width: 260px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding: 0;
+  width: 360px;
+  border: 1px solid rgb(200, 170, 110);
+  border-radius: 16px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 .guess-list {
-  padding: 8px;
-  max-height: 200px;
+  padding: 0;
+  max-height: 240px;
   display: flex;
   flex-direction: column;
   background-color: #3c3c41;
   overflow-y: scroll;
   align-items: center;
-  border: 1px solid rgb(200, 170, 110);
   border-radius: 16px;
+
+  margin: 0;
 }
 
 .input-list-img {
@@ -122,20 +131,41 @@ body {
 .guess-list li:nth-child(even) {
   background-color: #1e282d;
 }
+
+.guess-list li:nth-child(odd):hover {
+  background-color: #1e2328;
+  border: 1px solid rgb(200, 170, 110);
+  opacity: 0.5;
+}
+
+.guess-list li:nth-child(even):hover {
+  background-color: #1e282d;
+  opacity: 0.5;
+  border: 1px solid rgb(200, 170, 110);
+}
 .guess-list li {
   width: 80%;
   color: #a09b8c;
   list-style-type: none;
   display: flex;
   background-color: #1e282d;
-  margin-top: 8px;
+  /* margin-top: 8px;
   margin-right: 16px;
   margin-bottom: 8px;
-  margin-left: 16px;
+  margin-left: 16px; */
   border-radius: 16px;
+  padding: 8px;
+  margin: 8px;
+  cursor: pointer;
 }
+
+.guess-list li * {
+  pointer-events: none;
+}
+
 .guess-list li div {
-  margin-left: 16px;
+  /* margin-left: 16px; */
+  margin: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,6 +174,7 @@ body {
   margin: 0;
   font-size: 18px;
   font-weight: 700;
+  user-select: none;
 }
 .btn-warning,
 .btn-warning:hover,
@@ -156,10 +187,14 @@ body {
   width: 24px;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .table-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
 }
 
 #myTable {
@@ -167,8 +202,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-x: scroll;
   border: 2px solid rgb(200, 170, 110);
   border-radius: 16px;
+  flex-wrap: wrap;
 }
 #myTable thead {
   width: 1036px;
@@ -184,6 +221,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  font-size: 20px;
+  color: white;
 }
 #myTable thead th {
   margin: 4px;
@@ -231,4 +270,103 @@ body {
   font-size: 20px;
   font-weight: 600;
   text-align: center;
+}
+
+.skill-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-img-container {
+  padding: 4px;
+  text-align: center;
+  border: 2px solid rgb(200, 170, 110);
+  border-radius: 16px;
+  padding: 16px;
+  background-color: #1e2328;
+}
+
+.skill-img-container h5 {
+  margin-top: 8px;
+  color: white;
+}
+
+.skill-img-container img {
+  margin-top: 8px;
+  border: 2px solid rgb(200, 170, 110);
+  border-radius: 16px;
+}
+
+#skill-input {
+  padding-left: 12px;
+  border: none;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  outline: none;
+  width: 100%;
+}
+
+.skill-button {
+  border-radius: 0;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+#skillTable {
+  margin: 0;
+  border: none;
+}
+
+#skillTable tbody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#skillTable tbody tr {
+  border: 2px solid rgb(200, 170, 110);
+  border-radius: 16px;
+  overflow: hidden;
+  width: 300px;
+  margin-top: 4px;
+}
+
+#skillTable div {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+#skillTable td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.skill-pick-container {
+  display: flex;
+  background-color: #3c3c41;
+  width: 300px;
+  border: 2px solid rgb(200, 170, 110);
+  margin-top: 4px;
+  border-radius: 16px;
+  height: 80px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.skill-pick-list {
+  border: 2px solid rgb(200, 170, 110);
+  text-align: center;
+  padding: 8px;
+  height: 40px;
+  color: wheat;
+}
+
+.skill-pick-list:hover {
+  background-color: orange;
+  cursor: pointer;
 }

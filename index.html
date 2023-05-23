@@ -28,7 +28,79 @@
         <img src="/images/Assets/Logololdle.webp" alt="" width="200px" />
       </div>
     </header>
-    <section class="guess-champion visible">
+    <section id="guess-champion" class=>
+      <div class="container">
+        <div class="stats-container">
+          <div class="stats-list">
+            <div class="row stats-header" style="width: 100%; margin: 0">
+              <div
+                class="col-12 col-md-4 stats-data"
+                style="text-align: center"
+              >
+                <div class="stats-header-data">Number of Plays</div>
+                <div class="stats-header-border"></div>
+                <div class="stats-body" id="number-of-plays"></div>
+              </div>
+              <div
+                class="col-12 col-md-4 stats-data"
+                style="text-align: center"
+              >
+                <div class="stats-header-data">Number of Tries</div>
+                <div class="stats-header-border"></div>
+                <div class="stats-body" id="number-of-tries"></div>
+              </div>
+              <div
+                class="col-12 col-md-4 stats-data"
+                style="text-align: center"
+              >
+                <div class="stats-header-data">Current Streak</div>
+                <div class="stats-header-border"></div>
+                <div class="stats-body" id="current-streak"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container input-container">
+          <div class="user-input-container">
+            <input type="text" id="guess-input" />
+            <button class="send-button btn btn-warning">
+              <img src="/images/icons/send.svg" alt="" />
+            </button>
+          </div>
+        </div>
+        <div class="container input-list hidden" id="input-list">
+          <ul class="guess-list" id="guess-list"></ul>
+        </div>
+        <div class="container table-container hidden">
+          <table class="table" id="myTable">
+            <thead>
+              <tr>
+                <th scope="col">Champion</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Position(s)</th>
+                <th scope="col">Species</th>
+                <th scope="col">Resource</th>
+                <th scope="col">Range Type</th>
+                <th scope="col">Region(s)</th>
+                <th scope="col">Release Year</th>
+              </tr>
+            </thead>
+
+            <tbody></tbody>
+          </table>
+        </div>
+        <!-- <div class="indicator-container">
+          <h6>Color Indicators</h6>
+          <ul>
+            <li style="color: green">Correnct</li>
+            <li style="color: orange">Partial</li>
+            <li style="color: red">Incorrect</li>
+          </ul>
+          <button class="btn btn-primary">Close</button>
+        </div> -->
+      </div>
+    </section>
+    <section class=" hidden" id="guess-skill">
       <div class="container">
         <div class="stats-container">
           <div class="stats-list">
@@ -60,112 +132,32 @@
             </div>
           </div>
         </div>
-        <div class="container input-container">
-          <div class="user-input-container">
-            <input type="text" id="guess-input" />
-            <button class="send-button btn btn-warning">
-              <img src="/images/icons/send.svg" alt="" />
-            </button>
+        <div class="skill-container">
+          <div class="skill-img-container">
+            <img id="skill-img" style="width: 90px; height: 90px" alt="" />
+            <h5>Which Champion has this ability?</h5>
+          </div>
+
+          <div class="container input-container">
+            <div class="user-input-container">
+              <input type="text" id="skill-input" />
+              <button class="skill-button btn btn-warning">
+                <img src="/images/icons/send.svg" alt="" />
+              </button>
+            </div>
           </div>
         </div>
-        <div class="container input-list">
-          <ul class="guess-list">
-            <li>
-              <div class="input-list-img">
-                <img src="/images/Champions/Aatrox.png" alt="" />
-              </div>
-              <div class="input-list-title">
-                <p>Aatrox</p>
-              </div>
-            </li>
-            <li>
-              <div class="input-list-img">
-                <img src="/images/Champions/Aatrox.png" alt="" />
-              </div>
-              <div class="input-list-title">
-                <p>Aatrox</p>
-              </div>
-            </li>
-            <li>
-              <div class="input-list-img">
-                <img src="/images/Champions/Aatrox.png" alt="" />
-              </div>
-              <div class="input-list-title">
-                <p>Aatrox</p>
-              </div>
-            </li>
-            <li>
-              <div class="input-list-img">
-                <img src="/images/Champions/Aatrox.png" alt="" />
-              </div>
-              <div class="input-list-title">
-                <p>Aatrox</p>
-              </div>
-            </li>
-            <li>
-              <div class="input-list-img">
-                <img src="/images/Champions/Aatrox.png" alt="" />
-              </div>
-              <div class="input-list-title">
-                <p>Aatrox</p>
-              </div>
-            </li>
-            <li>
-              <div class="input-list-img">
-                <img src="/images/Champions/Aatrox.png" alt="" />
-              </div>
-              <div class="input-list-title">
-                <p>Aatrox</p>
-              </div>
-            </li>
-          </ul>
+        <div class="skill-pick-container container hidden">
+          <div class="skill-pick-list q">Q</div>
+          <div class="skill-pick-list w">W</div>
+          <div class="skill-pick-list e">E</div>
+          <div class="skill-pick-list r">R</div>
         </div>
-        <div class="card-container"></div>
         <div class="container table-container">
-          <table class="table" id="myTable">
-            <thead>
-              <tr>
-                <th scope="col">Champion</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Position(s)</th>
-                <th scope="col">Species</th>
-                <th scope="col">Resource</th>
-                <th scope="col">Range Type</th>
-                <th scope="col">Region(s)</th>
-                <th scope="col">Release Year</th>
-              </tr>
-            </thead>
-
+          <table class="table" id="skillTable">
             <tbody></tbody>
           </table>
         </div>
-        <div class="indicator-container">
-          <h6>Color Indicators</h6>
-          <ul>
-            <li style="color: green">Correnct</li>
-            <li style="color: orange">Partial</li>
-            <li style="color: red">Incorrect</li>
-          </ul>
-          <button class="btn btn-primary">Close</button>
-        </div>
-      </div>
-    </section>
-    <section class="guess-skill hidden">
-      <div class="container skill-container">
-        <h5>Which Champion has this ability?</h5>
-        <div class="skill-img-container container">
-          <img id="skill-img" style="width: 90px; height: 90px" alt="" />
-        </div>
-
-        <div class="input-container">
-          <input type="text" id="skill-input" />
-          <button class="skill-button btn btn-warning">
-            <img src="/images/icons/send.svg" alt="" />
-          </button>
-        </div>
-        <table class="table" id="skillTable">
-          <tbody></tbody>
-        </table>
       </div>
     </section>
     <footer class="container">Footer</footer>

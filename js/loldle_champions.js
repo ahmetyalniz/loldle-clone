@@ -111,7 +111,7 @@ var champions = [
   },
   {
     Name: "Aurelion Sol",
-    Image: "Aurelion Sol",
+    Image: "AurelionSol",
     Gender: "Male",
     Position: ["Middle"],
     Species: ["Celestial", "Dragon"],
