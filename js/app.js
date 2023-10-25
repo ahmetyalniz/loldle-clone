@@ -32,6 +32,9 @@ $(document).ready(function () {
     randomDegrees[Math.floor(Math.random() * randomDegrees.length)] +
     "deg";
   (")");
+
+  console.log(dailyChampion);
+  console.log(dailySkill);
 });
 
 dailyChampionInput.addEventListener("input", function () {
@@ -183,7 +186,7 @@ function onClickListItem(e) {
     e.target.getElementsByClassName("input-item-name")[0].innerHTML;
 
   listContainer.classList.add("hidden");
-
+  tableContainer.classList.remove("class", "hidden");
   removeGuessListItems();
   inputProcessor(inputValue);
 }
