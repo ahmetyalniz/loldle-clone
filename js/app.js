@@ -131,8 +131,9 @@ function createImage(imageSrc) {
 function guessAlert(guessedChampion, targetChampion) {
   if (guessedChampion == targetChampion) {
     alert("You win!");
-    guessSection.setAttribute("class", "hidden");
-    skillSection.classList.remove("hidden");
+    window.location.reload();
+    // guessSection.setAttribute("class", "hidden");
+    // skillSection.classList.remove("hidden");
   }
 }
 
